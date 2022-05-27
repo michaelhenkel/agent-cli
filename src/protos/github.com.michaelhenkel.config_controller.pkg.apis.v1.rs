@@ -1,4 +1,18 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
+pub struct FromToFilter {
+    #[prost(message, optional, tag="1")]
+    pub from: ::core::option::Option<Key>,
+    #[prost(message, optional, tag="2")]
+    pub to: ::core::option::Option<Key>,
+    #[prost(string, repeated, tag="3")]
+    pub filter: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+}
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ResourceList {
+    #[prost(message, repeated, tag="1")]
+    pub resources: ::prost::alloc::vec::Vec<Resource>,
+}
+#[derive(Clone, PartialEq, ::prost::Message)]
 pub struct SubscriptionRequest {
     #[prost(string, tag="1")]
     pub name: ::prost::alloc::string::String,
@@ -383,6 +397,25 @@ pub mod cli_client {
             let codec = tonic::codec::ProstCodec::default();
             let path = http::uri::PathAndQuery::from_static(
                 "/github.com.michaelhenkel.config_controller.pkg.apis.v1.Cli/Get",
+            );
+            self.inner.unary(request.into_request(), path, codec).await
+        }
+        pub async fn find(
+            &mut self,
+            request: impl tonic::IntoRequest<super::FromToFilter>,
+        ) -> Result<tonic::Response<super::ResourceList>, tonic::Status> {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/github.com.michaelhenkel.config_controller.pkg.apis.v1.Cli/Find",
             );
             self.inner.unary(request.into_request(), path, codec).await
         }

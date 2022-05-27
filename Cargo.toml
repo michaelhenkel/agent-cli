@@ -9,7 +9,7 @@ edition = "2021"
 [dependencies]
 anyhow = "^1"
 # TODO: once published to crates.io, use 3.0.0 there
-clap = { git = "https://github.com/clap-rs/clap/", version = "3.0.0-beta.1" }
+clap = { version = "3.1.17", features = ["derive"] }
 #clishe = "0.2.4"
 paste = "^0"
 rustyline = { version = "^5", optional = true }
@@ -17,6 +17,7 @@ shellwords = { version = "^1", optional = true }
 tonic = "0.7"
 prost = "0.10"
 tokio = { version = "1.0", features = ["macros", "rt-multi-thread"] }
+protobuf-json-mapping = "3.0.2"
 
 [build-dependencies]
 tonic-build = "0.7"

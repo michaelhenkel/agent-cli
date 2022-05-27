@@ -10,6 +10,7 @@ dependencies = [
  "clap",
  "paste",
  "prost",
+ "protobuf-json-mapping",
  "rustyline",
  "shellwords",
  "tokio",
@@ -162,22 +163,39 @@ checksum = "baf1de4339761588bc0619e3cbc0120ee582ebb74b53b4efbf79117bd2da40fd"
 
 [[package]]
 name = "clap"
-version = "3.1.15"
-source = "git+https://github.com/clap-rs/clap/#41a8a5b35193694269af944ba2c51d3e99d5df85"
+version = "3.1.17"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "47582c09be7c8b32c0ab3a6181825ababb713fde6fff20fc573a3870dd45c6a0"
 dependencies = [
  "atty",
  "bitflags",
+ "clap_derive",
  "clap_lex",
  "indexmap",
+ "lazy_static",
  "strsim",
  "termcolor",
  "textwrap",
 ]
 
 [[package]]
+name = "clap_derive"
+version = "3.1.7"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "a3aab4734e083b809aaf5794e14e756d1c798d2c69c7f7de7a09a2f5214993c1"
+dependencies = [
+ "heck",
+ "proc-macro-error",
+ "proc-macro2",
+ "quote",
+ "syn",
+]
+
+[[package]]
 name = "clap_lex"
 version = "0.2.0"
-source = "git+https://github.com/clap-rs/clap/#41a8a5b35193694269af944ba2c51d3e99d5df85"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "a37c35f1112dad5e6e0b1adaff798507497a18fceeb30cceb3bae7d1427b9213"
 dependencies = [
  "os_str_bytes",
 ]
@@ -635,6 +653,30 @@ dependencies = [
 ]
 
 [[package]]
+name = "proc-macro-error"
+version = "1.0.4"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "da25490ff9892aab3fcf7c36f08cfb902dd3e71ca0f9f9517bea02a73a5ce38c"
+dependencies = [
+ "proc-macro-error-attr",
+ "proc-macro2",
+ "quote",
+ "syn",
+ "version_check",
+]
+
+[[package]]
+name = "proc-macro-error-attr"
+version = "1.0.4"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "a1be40180e52ecc98ad80b184934baf3d0d29f979574e439af5a55274b35f869"
+dependencies = [
+ "proc-macro2",
+ "quote",
+ "version_check",
+]
+
+[[package]]
 name = "proc-macro-hack"
 version = "0.5.19"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -702,6 +744,37 @@ checksum = "2d0a014229361011dc8e69c8a1ec6c2e8d0f2af7c91e3ea3f5b2170298461e68"
 dependencies = [
  "bytes",
  "prost",
+]
+
+[[package]]
+name = "protobuf"
+version = "3.0.2"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "a74937d52a466a535fda2e83f0e575f3ef1b34e4a84545b4a9e418fad32a3b1c"
+dependencies = [
+ "once_cell",
+ "protobuf-support",
+ "thiserror",
+]
+
+[[package]]
+name = "protobuf-json-mapping"
+version = "3.0.2"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "f8d42efb0b28186d4f63e26ea5d62d5e9184e7f2831b019b258a2350e8da01b2"
+dependencies = [
+ "protobuf",
+ "protobuf-support",
+ "thiserror",
+]
+
+[[package]]
+name = "protobuf-support"
+version = "3.0.2"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "ebf34636d66670da249c3b6589142e7f0b4918a015ec72fa32102fd43e023b0e"
+dependencies = [
+ "thiserror",
 ]
 
 [[package]]
@@ -1143,6 +1216,12 @@ name = "utf8parse"
 version = "0.1.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "8772a4ccbb4e89959023bc5b7cb8623a795caa7092d99f3aa9501b9484d4557d"
+
+[[package]]
+name = "version_check"
+version = "0.9.4"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "49874b5167b65d7193b8aba1567f5c7d93d001cafc34600cee003eda787e483f"
 
 [[package]]
 name = "void"
